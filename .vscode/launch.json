@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch ORPHd",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/ORPHd",
+            "args": ["-testnet"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build ORPHd (Debug)",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ],
+    "compounds": [],
+    "tasks": [
+        {
+            "label": "Build ORPHd (Debug)",
+            "command": "cmake --build build --target ORPHd",
+            "type": "shell",
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
